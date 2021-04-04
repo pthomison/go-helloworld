@@ -23,6 +23,11 @@ checksum:
   name_template: 'checksums.txt'
 snapshot:
   name_template: "{{ .Tag }}-next"
+brews:
+  - 
+    tap:
+      owner: pthomison
+      name: homebrew-tools
 changelog:
   sort: asc
   filters:
