@@ -2,20 +2,19 @@ package main
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	utils "github.com/pthomison/golang-utils"
+	"github.com/spf13/cobra"
 )
 
 var (
 	message string
-	name string
+	name    string
 
 	rootCmd = &cobra.Command{
 		Use:   "go-helloworld",
 		Short: "go-helloworld",
-		Run: run,
+		Run:   run,
 	}
-
 )
 
 func main() {
@@ -29,7 +28,5 @@ func main() {
 }
 
 func run(cmd *cobra.Command, args []string) {
-	// nameSt, err := cmd.Flags().GetBool("float")
-
 	fmt.Println(message + ", " + name)
 }
