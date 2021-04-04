@@ -28,6 +28,15 @@ brews:
     tap:
       owner: pthomison
       name: homebrew-tools
+
+
+nfpms:
+  - 
+    formats:
+      - apk
+      - deb
+      - rpm
+      
 changelog:
   sort: asc
   filters:
