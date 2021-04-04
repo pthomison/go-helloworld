@@ -3,20 +3,33 @@ package main
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"os"
+	utils "github.com/pthomison/golang-utils"
+)
+
+var (
+	message string
+	name string
+
+	rootCmd = &cobra.Command{
+		Use:   "go-helloworld",
+		Short: "go-helloworld",
+		Run: run,
+	}
+
 )
 
 func main() {
-	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		os.Exit(1)
-	}
+
+	rootCmd.PersistentFlags().StringVarP(&message, "message", "m", "hello world", "message the program will output")
+	rootCmd.PersistentFlags().StringVarP(&name, "name", "n", "patrick", "name the program will output to")
+
+	err := rootCmd.Execute()
+
+	utils.Check(err)
 }
 
-var rootCmd = &cobra.Command{
-	Use:   "go-helloworld",
-	Short: "go-helloworld",
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("hello world")
-	},
+func run(cmd *cobra.Command, args []string) {
+	// nameSt, err := cmd.Flags().GetBool("float")
+
+	fmt.Println(message + ", " + name)
 }
